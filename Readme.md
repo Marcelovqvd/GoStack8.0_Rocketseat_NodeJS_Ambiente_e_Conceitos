@@ -90,8 +90,8 @@ Middleware é uma função que recebe os parâmetros req e res e manipula os dad
 #### Middleware global
 
 Não importa a rota que seja acessada, este middleware sempre vai ser chamado.
-  
- server.use((req, res) => {})
+
+server.use((req, res) => {})
 
 Porém o middleware global bloqueia o fluxo da aplicação. Então deve-se usar como terceiro parâmetro a função next:
 
@@ -123,3 +123,15 @@ Middleware para verificar se o index que o usuário passou nos parâmetros retor
 function checkUserInArray()
 
 Toda rota que usa a checkUserInArray vai ter acesso a req.user - user
+
+## Debugando aplicação
+
+Debugar aplicação no VsCode.
+
+Será criada uma pasta .vscode e dentro, o arquivo launch.json, que já vem configurado.
+
+Adicionar break point na linha que se quer testar clicar em play e executar a aplicação referente ao trecho de código selecionado.
+
+Na parte 'watch' do debuger, é possível adicionar variáveis para monitorar seus valores.
+
+#### aplicação finalizada
