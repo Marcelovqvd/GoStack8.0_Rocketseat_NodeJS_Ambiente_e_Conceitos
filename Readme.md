@@ -82,3 +82,44 @@ Utilizar o método de array splice(). O Splice percorre o vetor até o index inf
 Neste caso:
 
     users.splice(index, 1);
+
+## Middlewares
+
+Middleware é uma função que recebe os parâmetros req e res e manipula os dados, as informações, que estão na requisição e retorna ou não respostas para o usuário.
+
+#### Middleware global
+
+Não importa a rota que seja acessada, este middleware sempre vai ser chamado.
+  
+ server.use((req, res) => {})
+
+Porém o middleware global bloqueia o fluxo da aplicação. Então deve-se usar como terceiro parâmetro a função next:
+
+    server.use((req, res, next) => {
+
+      return next();
+
+    })
+
+Agora vai ser executado o próximo middleware que satisfizer as condições da aplicação.
+
+Na aula, mostra como pode criar um middleware de log para se saber todas as rotas que se está chamando
+
+    server.use((req, res, next) => {
+      console.log(método: ${req.method}; ${req.url} ) ...
+
+#### Middleware local
+
+É aplicado diretamente na rota.
+
+A function checkUserExists - vai ser um middleware para verificar se o usuário está descrito no body. Se não estiver, vai retornar um erro:
+
+    return res.status(400)
+
+400 -> bad request (falta informação)
+
+Middleware para verificar se o index que o usuário passou nos parâmetros retorna um usuário presente dentro do array users
+
+function checkUserInArray()
+
+Toda rota que usa a checkUserInArray vai ter acesso a req.user - user
