@@ -30,3 +30,17 @@ Consumindo Query e Route Params
 Para rota '/users/:id
 
     url - http://localhost:3000/users/id
+
+## Insomnia
+
+Software para testar as rotas
+
+## Nodemon
+
+Reinicia o servidor de foram automática
+
+    $ yarn add nodemon -D
+
+Em package.json criar script "dev": "nodemon index.js"
+
+Agora com o comando 'yarn dev' já é possível executar o nodemon
